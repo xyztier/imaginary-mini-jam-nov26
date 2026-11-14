@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://21cvglcvnnff"]
+
+[ext_resource type="PackedScene" uid="uid://b0vg3xy8htfc" path="res://game/player/player.tscn" id="1_8fcwd"]
+
+[node name="Main" type="Node" unique_id=85725922]
+
+[node name="World" type="Node2D" parent="." unique_id=732785934]
+
+[node name="Player" parent="World" unique_id=1095485809 instance=ExtResource("1_8fcwd")]
+position = Vector2(474, 274)
+starting_helium = null
+helium_release_amount = null
+pressure_release_amount = null
+pressure_increase_per_altitude_deviation = null
+sway_strength = null
+
+[node name="HudLayer" type="CanvasLayer" parent="." unique_id=382137804]
+
+[node name="HudRoot" type="Control" parent="HudLayer" unique_id=1975948315]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AltitudePressure" type="Label" parent="HudLayer/HudRoot" unique_id=396038033]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -112.0
+offset_right = 168.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Altitude:
+Pressure:"

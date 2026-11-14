@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b0vg3xy8htfc"]
+
+[ext_resource type="Script" uid="uid://lval07otv5en" path="res://game/player/player.gd" id="1_obar5"]
+[ext_resource type="Texture2D" uid="uid://dgt3kevpqh0nw" path="res://assets/art/icon.svg" id="2_b2mth"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kd3ar"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tjbdr"]
+radius = 32.0
+
+[node name="Player" type="Node2D" unique_id=625935190]
+script = ExtResource("1_obar5")
+
+[node name="Balloon" type="StaticBody2D" parent="." unique_id=1095485809]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Balloon" unique_id=1874883800]
+position = Vector2(0, -32)
+shape = SubResource("CircleShape2D_kd3ar")
+
+[node name="Sprite2D" type="Sprite2D" parent="Balloon" unique_id=1074322078]
+modulate = Color(1, 0.25908017, 0.2000173, 1)
+position = Vector2(0, -32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_b2mth")
+
+[node name="SwayJoint" type="PinJoint2D" parent="." unique_id=1987398473]
+node_a = NodePath("../Balloon")
+node_b = NodePath("../Gobbo")
+
+[node name="Gobbo" type="RigidBody2D" parent="." unique_id=470198633]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gobbo" unique_id=1736858362]
+position = Vector2(0, 32)
+shape = SubResource("CircleShape2D_tjbdr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Gobbo" unique_id=796694053]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(-1.0728836e-06, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_b2mth")
